@@ -1,4 +1,4 @@
-const ProductController = require('../controllers/product.controller')
+const funcs = require('../controllers/product.controller')
 const express = require('express')
 const router = express.Router()
 
@@ -6,18 +6,29 @@ const router = express.Router()
 
 router.get('/products',
 	(req,res)=>{
-		ProductController.getProducts(req,res)
+		funcs.getProducts(req,res)
 	})
 
 router.post('/products/new',
 	(req,res)=>{
-			ProductController.createProduct(req,res)
+			funcs.createProduct(req,res)
 	})
 
 router.get('/products/:id',
 	(req,res)=>{
-			ProductController.getOne(req,res)
+			funcs.getOne(req,res)
 	})
 
+router.put('/products/:id',
+	(req,res)=>{
+			console.log("comes")
+			funcs.updateOne(req,res);
+	})
 
+router.delete('/products/:id',
+	(req,res)=>{
+			console.log("comes")
+			funcs.deleteOne(req,res);
+			
+	})
 module.exports = router
