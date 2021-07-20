@@ -14,5 +14,10 @@ router.post('/products/new',
 			ProductController.createProduct(req,res)
 	})
 
+router.get('/products/:id',
+	(req,res)=>{
+			ProductController.getOne(req,res)
+	})
+
 
 module.exports = router

@@ -6,9 +6,12 @@ const ProductForm = ({p}) => {
   const [formSubmit, setFormSubmit] = p
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormSubmit(!formSubmit);
+    
     axios.post('http://localhost:8000/api/products/new',info)
-    .then(msg =>console.log(msg.data))
+    .then(msg =>{
+      console.log(msg.data)
+      setFormSubmit(!formSubmit);
+    })
     .catch(err => console.log(err))
   }
   function handleChange(e){
